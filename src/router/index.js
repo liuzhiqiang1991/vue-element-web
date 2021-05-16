@@ -3,9 +3,9 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-/* Layout */
 import Layout from '@/layout'
 
+// 必然加载
 export const constantRoutes = [
   {
     path: '/redirect',
@@ -53,13 +53,63 @@ export const constantRoutes = [
   }
 ]
 
-/**
- * asyncRoutes
- * the routes that need to be dynamically loaded based on user roles
- */
 export const asyncRoutes = [
+  {
+    path: '/book',
+    component: Layout,
+    redirect: '/book/list',
+    meta: { title: 'book管理', icon: 'documentation' },
+    children: [
+      {
+        path: '/book/create',
+        component: () => import('@/views/book/create'),
+        meta: { title: 'upload book', icon: 'edit' }
+      },
+      {
+        path: '/book/list',
+        component: () => import('@/views/book/list'),
+        meta: { title: 'list book', icon: 'documentation' }
+      }
+    ]
+  },
 
-  // 404 page must be placed at the end !!!
+  {
+    path: '/user',
+    component: Layout,
+    redirect: '/user/list',
+    meta: { title: 'user管理', icon: 'documentation', roles: ['admin'] },
+    children: [
+      {
+        path: '/user/create',
+        component: () => import('@/views/user/create'),
+        meta: { title: 'create user', icon: 'edit', roles: ['admin'] }
+      },
+      {
+        path: '/user/list',
+        component: () => import('@/views/user/list'),
+        meta: { title: 'list user', icon: 'documentation', roles: ['admin'] }
+      }
+    ]
+  },
+
+  {
+    path: '/gis',
+    component: Layout,
+    redirect: '/gis/list',
+    meta: { title: 'gis信息处理', icon: 'documentation' },
+    children: [
+      {
+        path: '/gis/create',
+        component: () => import('@/views/gis/create'),
+        meta: { title: '新增gis点', icon: 'edit' }
+      },
+      {
+        path: '/gis/list',
+        component: () => import('@/views/gis/list'),
+        meta: { title: 'gis信息展示', icon: 'documentation' }
+      }
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 
