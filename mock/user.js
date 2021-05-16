@@ -70,15 +70,15 @@ module.exports = [
     }
   },
 
-  // user logout
-  {
-    url: '/vue-element-admin/user/logout',
-    type: 'post',
-    response: _ => {
-      return {
-        code: 20000,
-        data: 'success'
-      }
-    }
-  }
+//  // user logout
+//  {
+//    url: '/vue-element-admin/user/logout',
+//    type: 'post',
+//    response: _ => {
+//      return {
+//        code: 20000,
+//        data: 'success'
+//      }
+//    }
+//  }
 ]
