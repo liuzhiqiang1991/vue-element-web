@@ -22,3 +22,19 @@ export function logout() {
     method: 'post'
   })
 }
+
+export function add(data) {
+  return request({
+    url: '/vue-element-admin/user/add',
+    method: 'post',
+    data
+  })
+}
+
+export function listUser(params) {
+  return request({
+    url: '/vue-element-admin/user/list',
+    method: 'get',
+    params
+  })
+}

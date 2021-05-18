@@ -1,4 +1,4 @@
-import { login, getInfo } from '@/api/user' // 去掉logout
+import { login, getInfo, add } from '@/api/user' // 去掉logout
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
@@ -38,6 +38,20 @@ const actions = {
         commit('SET_TOKEN', data.token)
         setToken(data.token)
         resolve()
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  },
+
+  // user add: 新增用户
+  add({ commit }, userInfo) {
+    const { username, password, role, nickname, avatar } = userInfo
+    return new Promise((resolve, reject) => {
+      // alert(username.trim() + '  test' )
+      add({ username: username.trim(), password: password.trim(), role: role.trim(), nickname: nickname.trim(), avatar: avatar.trim() }).then(response => {
+        // alert(response.data)
+        resolve(response)
       }).catch(error => {
         reject(error)
       })

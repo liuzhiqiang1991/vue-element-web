@@ -58,7 +58,7 @@ export const asyncRoutes = [
     path: '/book',
     component: Layout,
     redirect: '/book/list',
-    meta: { title: 'book管理', icon: 'documentation' },
+    meta: { title: 'book manage', icon: 'documentation' },
     children: [
       {
         path: '/book/create',
@@ -68,7 +68,7 @@ export const asyncRoutes = [
       {
         path: '/book/list',
         component: () => import('@/views/book/list'),
-        meta: { title: 'list book', icon: 'documentation' }
+        meta: { title: 'list book', icon: 'list' }
       }
     ]
   },
@@ -77,17 +77,17 @@ export const asyncRoutes = [
     path: '/user',
     component: Layout,
     redirect: '/user/list',
-    meta: { title: 'user管理', icon: 'documentation', roles: ['admin'] },
+    meta: { title: 'user manage', icon: 'documentation' }, // , roles: ['admin']
     children: [
       {
         path: '/user/create',
         component: () => import('@/views/user/create'),
-        meta: { title: 'create user', icon: 'edit', roles: ['admin'] }
+        meta: { title: 'create user', icon: 'edit' } // , roles: ['admin']
       },
       {
         path: '/user/list',
         component: () => import('@/views/user/list'),
-        meta: { title: 'list user', icon: 'documentation', roles: ['admin'] }
+        meta: { title: 'list user', icon: 'list' } // , roles: ['admin']
       }
     ]
   },
@@ -106,7 +106,7 @@ export const asyncRoutes = [
       {
         path: '/gis/list',
         component: () => import('@/views/gis/list'),
-        meta: { title: 'gis信息展示', icon: 'documentation' }
+        meta: { title: 'gis信息展示', icon: 'list' }
       }
     ]
   },

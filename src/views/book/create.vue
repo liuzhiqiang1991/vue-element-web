@@ -1,9 +1,20 @@
 <template>
-  <div>create a book</div>
+  <detail :is-edit="false" />
 </template>
-
 <script>
-</script>
+import Detail from './components/Detail'
 
-<style lang="scss" scoped>
-</style>
+export default {
+  components: {
+    Detail
+  },
+  data() {
+
+  },
+  methods: {
+
+  }
+
+}
+</script>
+<style lang="scss" scoped></style>
