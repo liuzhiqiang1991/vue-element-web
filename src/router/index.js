@@ -66,10 +66,17 @@ export const asyncRoutes = [
         meta: { title: 'upload book', icon: 'edit' }
       },
       {
+        name: 'bookEdit',
+        path: '/book/edit/:fileName',
+        component: () => import('@/views/book/edit'),
+        meta: { title: '编辑图书', icon: 'edit' }
+      },
+      {
         path: '/book/list',
         component: () => import('@/views/book/list'),
         meta: { title: 'list book', icon: 'list' }
       }
+
     ]
   },
 
@@ -85,6 +92,12 @@ export const asyncRoutes = [
         meta: { title: 'create user', icon: 'edit' } // , roles: ['admin']
       },
       {
+        name: 'userEdit',
+        path: '/user/edit/:username',
+        component: () => import('@/views/user/edit'),
+        meta: { title: '编辑用户信息', icon: 'edit' }
+      },
+      {
         path: '/user/list',
         component: () => import('@/views/user/list'),
         meta: { title: 'list user', icon: 'list' } // , roles: ['admin']
@@ -98,6 +111,11 @@ export const asyncRoutes = [
     redirect: '/gis/list',
     meta: { title: 'gis信息处理', icon: 'documentation' },
     children: [
+      {
+        path: '/gis/lonlat_distance',
+        component: () => import('@/views/gis/lonlat_distance'),
+        meta: { title: '经纬度点计算距离', icon: 'edit' }
+      },
       {
         path: '/gis/create',
         component: () => import('@/views/gis/create'),

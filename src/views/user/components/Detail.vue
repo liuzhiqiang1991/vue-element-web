@@ -79,8 +79,8 @@
 
 import Sticky from '../../../components/Sticky/index'
 // import Warning from './Warning'
+import { getUser } from '../../../api/user'
 
-// import EuserUpload from '../../../components/EuserUpload'
 export default {
   components: { Sticky },
   props: {
@@ -99,13 +99,41 @@ export default {
         avatar: 'avatar'
 
       },
-      fileList: [],
-      labelWidth: '120px',
-      contentsTree: []
-
+      labelWidth: '120px'
     }
   },
+
+  created() {
+    const fileName = this.$route.params.username
+    console.log(fileName)
+    this.getUserData(fileName)
+  },
   methods: {
+    getUserData(username) {
+      getUser(username).then(response => {
+        // alert(response)
+        this.setData(response.data)
+      })
+    },
+    setData(data) {
+      const {
+        id,
+        username,
+        password,
+        role,
+        nickname,
+        avatar
+      } = data
+      this.postForm = {
+        ...this.postForm,
+        id,
+        username,
+        password,
+        role,
+        nickname,
+        avatar
+      }
+    },
     showGuide() {
       alert('显示帮助')
     },
@@ -115,26 +143,50 @@ export default {
       // this.loading = false
       // alert(this.postForm.username + ' ' + this.postForm.password)
 
-      this.$store.dispatch('user/add', this.postForm)
-        .then((msg) => {
-          // alert(msg)
-          this.$notify({
-            title: '操作成功',
-            message: msg.data,
-            type: 'success',
-            duration: 2000
+      // alert(this.isEdit)
+      if (!this.isEdit) {
+        this.$store.dispatch('user/add', this.postForm)
+          .then((msg) => {
+            // alert(msg)
+            this.$notify({
+              title: '操作成功',
+              message: msg.data,
+              type: 'success',
+              duration: 2000
+            })
+            this.loading = false
+          }).catch((e) => {
+            this.$notify({
+              title: '新增用户失败',
+              message: e,
+              type: 'fail',
+              duration: 2000
+            })
+            // alert('unfinish')
+            this.loading = false
           })
-          this.loading = false
-        }).catch((e) => {
-          this.$notify({
-            title: '新增用户失败',
-            message: e,
-            type: 'fail',
-            duration: 2000
+      } else {
+        // alert(this.postForm.username)
+        this.$store.dispatch('user/update', this.postForm)
+          .then((msg) => {
+            this.$notify({
+              title: '操作成功',
+              message: msg.data,
+              type: 'success',
+              duration: 2000
+            })
+            this.loading = false
+          }).catch((e) => {
+            this.$notify({
+              title: '编辑用户失败',
+              message: e,
+              type: 'fail',
+              duration: 2000
+            })
+            // alert('unfinish')
+            this.loading = false
           })
-          // alert('unfinish')
-          this.loading = false
-        })
+      }
     }
   }
 }

@@ -208,6 +208,7 @@ export default {
     if (this.isEdit) {
       const fileName = this.$route.params.fileName
       console.log(fileName)
+
       this.getBookData(fileName)
     }
   },

@@ -69,6 +69,18 @@
       <el-table-column label="nickname" prop="nickname" width="150" align="center" />
       <el-table-column label="avatar" prop="avatar" width="150" align="center" />
 
+      <el-table-column
+        label="操作"
+        width="120"
+        align="center"
+        fixed="right"
+      >
+        <template slot-scope="{ row }">
+          <el-button type="text" icon="el-icon-edit" @click="handleUpdate(row)" />
+          <el-button type="text" icon="el-icon-delete" style="color:#f56c6c" @click="handleDelete(row)" />
+
+        </template>
+      </el-table-column>
     </el-table>
 
     <pagination
@@ -85,10 +97,9 @@
 
 import Pagination from '../../components/Pagination/index'
 import waves from '../../directive/waves/waves'
-import { getCategory, deleteBook } from '../../api/book'
 import { parseTime } from '../../utils/index'
 
-import { listUser } from '../../api/user'
+import { listUser, deleteUser } from '../../api/user'
 
 export default {
   components: { Pagination },
@@ -118,23 +129,10 @@ export default {
     this.parseQuery()
   },
   mounted() {
-    this.getCategoryList()
     this.getList()
   },
   methods: {
-    parseQuery() {
-      const listQuery = {
-        page: 1,
-        pageSize: 10,
-        sort: '+id'
-      }
-      this.listQuery = { ...listQuery, ...this.listQuery }
-    },
-    handleUpdate(row) {
-      console.log(row)
-      // 跳转到编辑页面
-      this.$router.push(`/book/edit/${row.fileName}`)
-    },
+
     handleDelete(row) {
       // 删除
       // alert('删除操作')
@@ -144,7 +142,7 @@ export default {
         type: 'warning'
       }).then(() => {
         // 选确定后，才会执行
-        deleteBook(row.fileName).then(response => {
+        deleteUser(row.username).then(response => {
           this.$notify({
             title: '成功',
             message: response.msg || '删除成功',
@@ -154,6 +152,22 @@ export default {
           this.handleFilter()
         })
       })
+    },
+    handleUpdate(row) {
+      // alert('1')
+      // alert(row.username)
+      // console.log(row)
+      // 跳转到编辑页面
+
+      this.$router.push(`/user/edit/${row.username}`)
+    },
+    parseQuery() {
+      const listQuery = {
+        page: 1,
+        pageSize: 10,
+        sort: '+id'
+      }
+      this.listQuery = { ...listQuery, ...this.listQuery }
     },
     sortChange(data) {
       console.log('sortChange', data)
@@ -190,11 +204,6 @@ export default {
         this.list = list
         this.total = count
         this.listLoading = false
-      })
-    },
-    getCategoryList() {
-      getCategory().then(response => {
-        this.categoryList = response.data
       })
     },
     handleFilter() {
