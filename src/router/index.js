@@ -122,9 +122,32 @@ export const asyncRoutes = [
         meta: { title: '新增gis点', icon: 'edit' }
       },
       {
-        path: '/gis/list',
+        path: '/gis/area_code_list',
         component: () => import('@/views/gis/list'),
         meta: { title: 'gis信息展示', icon: 'list' }
+      }
+    ]
+  },
+  {
+    path: '/area_code',
+    component: Layout,
+    redirect: '/area_code/list',
+    meta: { title: '城市区号', icon: 'documentation' },
+    children: [
+      {
+        path: '/area_code/create',
+        component: () => import('@/views/area_code/create'),
+        meta: { title: '新增城市区号信息', icon: 'create' }
+      },
+      {
+        path: '/area_code/edit/:username',
+        component: () => import('@/views/area_code/edit'),
+        meta: { title: '编辑用户信息', icon: 'edit' }
+      },
+      {
+        path: '/area_code/list',
+        component: () => import('@/views/area_code/list'),
+        meta: { title: '城市区号信息展示', icon: 'list' }
       }
     ]
   },
