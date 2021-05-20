@@ -115,16 +115,6 @@ export const asyncRoutes = [
         path: '/gis/lonlat_distance',
         component: () => import('@/views/gis/lonlat_distance'),
         meta: { title: '经纬度点计算距离', icon: 'edit' }
-      },
-      {
-        path: '/gis/create',
-        component: () => import('@/views/gis/create'),
-        meta: { title: '新增gis点', icon: 'edit' }
-      },
-      {
-        path: '/gis/area_code_list',
-        component: () => import('@/views/gis/list'),
-        meta: { title: 'gis信息展示', icon: 'list' }
       }
     ]
   },
@@ -132,22 +122,46 @@ export const asyncRoutes = [
     path: '/area_code',
     component: Layout,
     redirect: '/area_code/list',
-    meta: { title: '城市区号', icon: 'documentation' },
+    meta: { title: '座机区号信息', icon: 'documentation' },
     children: [
       {
         path: '/area_code/create',
         component: () => import('@/views/area_code/create'),
-        meta: { title: '新增城市区号信息', icon: 'create' }
+        meta: { title: '新增城市区号信息', icon: 'edit' }
       },
       {
-        path: '/area_code/edit/:username',
+        path: '/area_code/edit/:city',
         component: () => import('@/views/area_code/edit'),
-        meta: { title: '编辑用户信息', icon: 'edit' }
+        meta: { title: '编辑城市区号信息', icon: 'edit' }
       },
       {
         path: '/area_code/list',
         component: () => import('@/views/area_code/list'),
         meta: { title: '城市区号信息展示', icon: 'list' }
+      }
+    ]
+  },
+
+  {
+    path: '/car_code',
+    component: Layout,
+    redirect: '/car_code/list',
+    meta: { title: '车牌编码信息', icon: 'documentation' },
+    children: [
+      {
+        path: '/car_code/create',
+        component: () => import('@/views/car_code/create'),
+        meta: { title: '新增车牌编码信息', icon: 'edit' }
+      },
+      {
+        path: '/car_code/edit/:city',
+        component: () => import('@/views/car_code/edit'),
+        meta: { title: '编辑车牌编码信息', icon: 'edit' }
+      },
+      {
+        path: '/car_code/list',
+        component: () => import('@/views/car_code/list'),
+        meta: { title: '展示车牌编码信息', icon: 'list' }
       }
     ]
   },

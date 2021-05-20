@@ -35,7 +35,7 @@
 
           <el-row>
             <el-col :span="12">
-              <el-form-item prop="code" label="编码：" :label-width="labelWidth">
+              <el-form-item prop="code" label="座机区号编码：" :label-width="labelWidth">
                 <el-input
                   v-model="postForm.code"
                   placeholder="编码"
@@ -74,9 +74,7 @@ export default {
     }
   },
   created() {
-    // alert(this.$route.params)
-    // console.log(this.$route.params)
-    const city = this.$route.params.username
+    const city = this.$route.params.city
     // alert(city)
     this.getCodeData(city)
   },
@@ -107,7 +105,7 @@ export default {
     },
     submitForm() {
       if (!this.isEdit) {
-        this.$store.dispatch('area_code/add', this.postForm)
+        this.$store.dispatch('car_code/add', this.postForm)
           .then((msg) => {
             this.$notify({
               title: '操作成功',
@@ -127,7 +125,7 @@ export default {
             this.loading = false
           })
       } else {
-        this.$store.dispatch('area_code/update', this.postForm)
+        this.$store.dispatch('car_code/update', this.postForm)
           .then((msg) => {
             this.$notify({
               title: '操作成功',
