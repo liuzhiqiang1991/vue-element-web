@@ -122,22 +122,22 @@ export const asyncRoutes = [
     path: '/area_code',
     component: Layout,
     redirect: '/area_code/list',
-    meta: { title: '座机区号信息', icon: 'documentation' },
+    meta: { title: '座机区号', icon: 'documentation' },
     children: [
       {
         path: '/area_code/create',
         component: () => import('@/views/area_code/create'),
-        meta: { title: '新增城市区号信息', icon: 'edit' }
+        meta: { title: '新增', icon: 'edit' }
       },
       {
         path: '/area_code/edit/:city',
         component: () => import('@/views/area_code/edit'),
-        meta: { title: '编辑城市区号信息', icon: 'edit' }
+        meta: { title: '编辑', icon: 'edit' }
       },
       {
         path: '/area_code/list',
         component: () => import('@/views/area_code/list'),
-        meta: { title: '城市区号信息展示', icon: 'list' }
+        meta: { title: '展示', icon: 'list' }
       }
     ]
   },
@@ -146,22 +146,46 @@ export const asyncRoutes = [
     path: '/car_code',
     component: Layout,
     redirect: '/car_code/list',
-    meta: { title: '车牌编码信息', icon: 'documentation' },
+    meta: { title: '车牌编码', icon: 'documentation' },
     children: [
       {
         path: '/car_code/create',
         component: () => import('@/views/car_code/create'),
-        meta: { title: '新增车牌编码信息', icon: 'edit' }
+        meta: { title: '新增', icon: 'edit' }
       },
       {
         path: '/car_code/edit/:city',
         component: () => import('@/views/car_code/edit'),
-        meta: { title: '编辑车牌编码信息', icon: 'edit' }
+        meta: { title: '编辑', icon: 'edit' }
       },
       {
         path: '/car_code/list',
         component: () => import('@/views/car_code/list'),
-        meta: { title: '展示车牌编码信息', icon: 'list' }
+        meta: { title: '展示', icon: 'list' }
+      }
+    ]
+  },
+
+  {
+    path: '/phone_code',
+    component: Layout,
+    redirect: '/phone_code/list',
+    meta: { title: '手机号前7位编码', icon: 'documentation' },
+    children: [
+      {
+        path: '/phone_code/create',
+        component: () => import('@/views/phone_code/create'),
+        meta: { title: '新增', icon: 'edit' }
+      },
+      {
+        path: '/phone_code/edit/:code',
+        component: () => import('@/views/phone_code/edit'),
+        meta: { title: '编辑', icon: 'edit' }
+      },
+      {
+        path: '/phone_code/list',
+        component: () => import('@/views/phone_code/list'),
+        meta: { title: '展示', icon: 'list' }
       }
     ]
   },

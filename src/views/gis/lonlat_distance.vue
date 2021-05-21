@@ -20,6 +20,17 @@
         class="filter-item"
         clearable
       />
+
+      <el-button
+        v-waves
+        class="filter-item"
+        type="primary"
+        icon="el-icon-search"
+        style="margin-left: 10px"
+        @click="clear"
+      >置空
+      </el-button>
+
     </div>
     <div class="filter-container">
       <el-label>点2经度：</el-label>
@@ -48,7 +59,7 @@
         icon="el-icon-search"
         style="margin-left: 10px"
         @click="handle"
-      >计算距离
+      >计算
       </el-button>
     </div>
 
@@ -81,6 +92,12 @@ export default {
       s = s * 6378.137
       // s = Math.round(s * 10000) / 10000;
       alert(s + '公里')
+    },
+    clear() {
+      this.lon1 = ''
+      this.lat1 = ''
+      this.lon2 = ''
+      this.lat2 = ''
     }
   }
 }
