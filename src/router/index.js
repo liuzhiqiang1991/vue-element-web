@@ -189,6 +189,31 @@ export const asyncRoutes = [
       }
     ]
   },
+
+  {
+    path: '/district_code',
+    component: Layout,
+    redirect: '/district_code/list',
+    meta: { title: '行政区编码', icon: 'documentation' },
+    children: [
+      {
+        path: '/district_code/create',
+        component: () => import('@/views/district_code/create'),
+        meta: { title: '新增', icon: 'edit' }
+      },
+      {
+        path: '/district_code/edit/:code',
+        component: () => import('@/views/district_code/edit'),
+        meta: { title: '编辑', icon: 'edit' }
+      },
+      {
+        path: '/district_code/list',
+        component: () => import('@/views/district_code/list'),
+        meta: { title: '展示', icon: 'list' }
+      }
+    ]
+  },
+
   { path: '*', redirect: '/404', hidden: true }
 ]
 
