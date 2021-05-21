@@ -63,7 +63,6 @@ export default {
   },
   data() {
     return {
-
       loading: false,
       postForm: {
         province: 'province',
@@ -74,8 +73,10 @@ export default {
     }
   },
   created() {
-    const code = this.$route.params.code
-    this.getCodeData(code)
+    if (this.isEdit) {
+      const code = this.$route.params.code
+      this.getCodeData(code)
+    }
   },
   methods: {
     getCodeData(code) {

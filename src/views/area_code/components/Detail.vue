@@ -74,9 +74,11 @@ export default {
     }
   },
   created() {
-    const city = this.$route.params.city
-    // alert(city)
-    this.getCodeData(city)
+    if (this.isEdit) {
+      const city = this.$route.params.city
+      // alert(city)
+      this.getCodeData(city)
+    }
   },
   methods: {
     getCodeData(city) {

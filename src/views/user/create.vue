@@ -9,7 +9,17 @@ export default {
     Detail
   },
   data() {
-
+    return {
+      loading: false,
+      postForm: {
+        username: 'username',
+        password: 'password',
+        role: 'role',
+        nickname: 'nickname',
+        avatar: 'avatar'
+      },
+      labelWidth: '120px'
+    }
   },
   methods: {
 

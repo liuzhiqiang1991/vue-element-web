@@ -9,7 +9,16 @@ export default {
     Detail
   },
   data() {
-
+    return {
+      loading: false,
+      postForm: {
+        code: 'code',
+        name: 'name',
+        parent: 'parent',
+        code_level: 'code_level'
+      },
+      labelWidth: '120px'
+    }
   },
   methods: {
 

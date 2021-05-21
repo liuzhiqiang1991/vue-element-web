@@ -89,7 +89,6 @@ export default {
   },
   data() {
     return {
-
       loading: false,
       postForm: {
         username: 'username',
@@ -97,16 +96,16 @@ export default {
         role: 'role',
         nickname: 'nickname',
         avatar: 'avatar'
-
       },
       labelWidth: '120px'
     }
   },
 
   created() {
-    const fileName = this.$route.params.username
-    console.log(fileName)
-    this.getUserData(fileName)
+    if (this.isEdit) {
+      const fileName = this.$route.params.username
+      this.getUserData(fileName)
+    }
   },
   methods: {
     getUserData(username) {

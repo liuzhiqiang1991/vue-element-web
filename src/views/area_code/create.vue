@@ -9,7 +9,16 @@ export default {
     Detail
   },
   data() {
+    return {
 
+      loading: false,
+      postForm: {
+        province: 'province',
+        city: 'city',
+        code: 'code'
+      },
+      labelWidth: '120px'
+    }
   },
   methods: {
 

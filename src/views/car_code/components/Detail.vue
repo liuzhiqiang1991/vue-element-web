@@ -74,8 +74,10 @@ export default {
     }
   },
   created() {
-    const city = this.$route.params.city
-    this.getCodeData(city)
+    if (this.isEdit) {
+      const city = this.$route.params.city
+      this.getCodeData(city)
+    }
   },
   methods: {
     getCodeData(city) {

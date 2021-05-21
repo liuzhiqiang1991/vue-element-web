@@ -214,6 +214,14 @@ export const asyncRoutes = [
     ]
   },
 
+  {
+    path: 'http://localhost:8081/snow/index.jsp',
+    component: Layout,
+    redirect: '/district_code/list',
+    meta: { title: '笔记', icon: 'documentation' }
+
+  },
+
   { path: '*', redirect: '/404', hidden: true }
 ]
 
