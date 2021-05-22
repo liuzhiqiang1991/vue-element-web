@@ -9,6 +9,24 @@ export default {
     Detail
   },
   data() {
+    return {
+
+      loading: false,
+      postForm: {
+        status: 'draft'
+      },
+      fileList: [],
+      labelWidth: '120px',
+      contentsTree: [],
+      // 校验规则
+      rules: {
+        title: [{ validator: validateRequire }],
+        author: [{ validator: validateRequire }],
+        language: [{ validator: validateRequire }],
+        publisher: [{ validator: validateRequire }]
+
+      }
+    }
 
   },
   methods: {

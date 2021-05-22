@@ -69,7 +69,9 @@ export const asyncRoutes = [
         name: 'bookEdit',
         path: '/book/edit/:fileName',
         component: () => import('@/views/book/edit'),
-        meta: { title: '编辑图书', icon: 'edit' }
+        meta: { title: '编辑图书', icon: 'edit' },
+        hidden: true
+
       },
       {
         path: '/book/list',
@@ -95,7 +97,9 @@ export const asyncRoutes = [
         name: 'userEdit',
         path: '/user/edit/:username',
         component: () => import('@/views/user/edit'),
-        meta: { title: '编辑用户信息', icon: 'edit' }
+        meta: { title: '编辑用户信息', icon: 'edit' },
+        hidden: true
+
       },
       {
         path: '/user/list',
@@ -132,7 +136,9 @@ export const asyncRoutes = [
       {
         path: '/area_code/edit/:city',
         component: () => import('@/views/area_code/edit'),
-        meta: { title: '编辑', icon: 'edit' }
+        meta: { title: '编辑', icon: 'edit' },
+        hidden: true
+
       },
       {
         path: '/area_code/list',
@@ -156,7 +162,8 @@ export const asyncRoutes = [
       {
         path: '/car_code/edit/:city',
         component: () => import('@/views/car_code/edit'),
-        meta: { title: '编辑', icon: 'edit' }
+        meta: { title: '编辑', icon: 'edit' },
+        hidden: true
       },
       {
         path: '/car_code/list',
@@ -180,7 +187,8 @@ export const asyncRoutes = [
       {
         path: '/phone_code/edit/:code',
         component: () => import('@/views/phone_code/edit'),
-        meta: { title: '编辑', icon: 'edit' }
+        meta: { title: '编辑', icon: 'edit' },
+        hidden: true
       },
       {
         path: '/phone_code/list',
@@ -204,7 +212,8 @@ export const asyncRoutes = [
       {
         path: '/district_code/edit/:code',
         component: () => import('@/views/district_code/edit'),
-        meta: { title: '编辑', icon: 'edit' }
+        meta: { title: '编辑', icon: 'edit' },
+        hidden: true
       },
       {
         path: '/district_code/list',
