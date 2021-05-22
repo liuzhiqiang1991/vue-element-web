@@ -107,7 +107,7 @@ export default {
     },
     submitForm() {
       if (!this.isEdit) {
-        this.$store.dispatch('car_code/add', this.postForm)
+        this.$store.dispatch('area_code/add', this.postForm)
           .then((msg) => {
             this.$notify({
               title: '操作成功',
@@ -127,7 +127,7 @@ export default {
             this.loading = false
           })
       } else {
-        this.$store.dispatch('car_code/update', this.postForm)
+        this.$store.dispatch('area_code/update', this.postForm)
           .then((msg) => {
             this.$notify({
               title: '操作成功',
