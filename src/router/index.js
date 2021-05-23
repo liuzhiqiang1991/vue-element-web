@@ -224,9 +224,8 @@ export const asyncRoutes = [
   },
 
   {
-    path: 'http://localhost:8081/snow/index.jsp',
+    path: 'http://1.117.78.217:8080/snow/index.jsp',
     component: Layout,
-    redirect: '/district_code/list',
     meta: { title: '笔记', icon: 'documentation' }
 
   },
