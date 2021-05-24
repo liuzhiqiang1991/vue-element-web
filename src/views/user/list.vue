@@ -2,16 +2,6 @@
   <div class="app-container">
     <div class="filter-container">
       <el-input
-        v-model="listQuery.id"
-        placeholder="id"
-        style="width: 200px"
-        class="filter-item"
-        clearable
-        @keyup.enter.native="handleFilter"
-        @clear="handleFilter"
-        @blur="handleFilter"
-      />
-      <el-input
         v-model="listQuery.username"
         placeholder="用户名"
         style="width: 200px"
@@ -29,7 +19,7 @@
         icon="el-icon-search"
         style="margin-left: 10px"
         @click="handleFilter"
-      >查询
+      >按照用户名查询
       </el-button>
 
       <el-button

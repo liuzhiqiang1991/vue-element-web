@@ -59,11 +59,13 @@ export const asyncRoutes = [
     component: Layout,
     redirect: '/book/list',
     meta: { title: 'book manage', icon: 'documentation' },
+    hidden: true,
     children: [
       {
         path: '/book/create',
         component: () => import('@/views/book/create'),
-        meta: { title: 'upload book', icon: 'edit' }
+        meta: { title: 'upload book', icon: 'edit' },
+        hidden: true
       },
       {
         name: 'bookEdit',
@@ -76,7 +78,8 @@ export const asyncRoutes = [
       {
         path: '/book/list',
         component: () => import('@/views/book/list'),
-        meta: { title: 'list book', icon: 'list' }
+        meta: { title: 'list book', icon: 'list' },
+        hidden: true
       }
 
     ]
@@ -86,7 +89,7 @@ export const asyncRoutes = [
     path: '/user',
     component: Layout,
     redirect: '/user/list',
-    meta: { title: 'user manage', icon: 'documentation' }, // , roles: ['admin']
+    meta: { title: '用户管理', icon: 'documentation' }, // , roles: ['admin']
     children: [
       {
         path: '/user/create',
@@ -223,6 +226,12 @@ export const asyncRoutes = [
     ]
   },
 
+  {
+    path: 'http://1.117.78.217/mall/',
+    component: Layout,
+    meta: { title: 'mall项目', icon: 'documentation' }
+
+  },
   {
     path: 'http://1.117.78.217:8080/snow/index.jsp',
     component: Layout,
