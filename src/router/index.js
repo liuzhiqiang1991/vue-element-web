@@ -55,6 +55,11 @@ export const constantRoutes = [
 
 export const asyncRoutes = [
   {
+    path: 'http://www.bee1991.com/',
+    component: Layout,
+    meta: { title: '返回首页', icon: 'documentation' }
+  },
+  {
     path: '/book',
     component: Layout,
     redirect: '/book/list',
